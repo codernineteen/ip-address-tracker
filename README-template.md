@@ -61,8 +61,42 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-ajax
-api request(fetch)
+API request(fetch)
+
+- There is a lot of method for requesting GET method from api
+- I choose fetch because it looked simple
+- Fetch function works with promise. so i needed to use '.then()' to wait response
+
+```js
+const result = fetch(geoEndPoint)
+  .then((response) => response.json())
+  .then((result) => {
+    return result;
+  });
+```
+
+- Also i should use async function because i can't treat results from api at the same time. I used code below
+
+```js
+const makeLocation = async () => {
+  const a = await result;
+  lat = a.location.lat;
+  lng = a.location.lng;
+};
+// used arrow function
+```
+
+Media queries
+
+- To make responsive website, I need to change ratio of width as to screen size
+- I realized i only can use 'px' unit to max-width and min-width although i using 'rem' unit in my whole css code
+
+How to read API docs
+
+- It was really difficult to understand several api docs as a non-native of English
+- First, i should focus on what programming language i'm using
+- Second, If there is no problem with my project, Just copy and paste code into my project and see what happened
+- Third, If i can't get clear solution from docs, i can search it on google(There will be a lot of programmers who already used the api and suffered from similar problems)
 
 ### Continued development
 
